@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import logo from './logo.svg';
 import './App.css';
 import { formatData } from "./utils";
+import Dashboard from "./components/Dashboard";
+import "./styles.css";
 
 function App() {
   //all available cryptocurrencies
@@ -131,9 +133,7 @@ function App() {
     setpair(e.target.value);
   };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+   
         <div className="container">
       {
         <select name="currency" value={pair} onChange={handleSelect}>
@@ -146,9 +146,9 @@ function App() {
           })}
         </select>
       }
+       <Dashboard price={price} data={pastData} />
     </div>
-      </header>
-    </div>
+     
   );
 }
 
